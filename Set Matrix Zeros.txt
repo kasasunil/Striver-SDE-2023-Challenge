@@ -1,0 +1,29 @@
+import java.io.*;
+import java.util.* ;
+
+public class Solution {
+    public static void setZeros(int mat[][]) {
+        HashSet<Integer> cols = new HashSet<>();
+        HashSet<Integer> rows = new HashSet<>();
+        int n = mat.length,m = mat[0].length;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(mat[i][j] == 0){
+                    cols.add(j);
+                    rows.add(i);
+                }
+            }
+        }
+        for(int i:rows){
+            for(int j=0;j<m;j++){
+                mat[i][j]=0;
+            }
+        }
+        for(int i:cols){
+            for(int j=0;j<n;j++){
+                mat[j][i]=0;
+            }
+        }
+    }
+
+}
